@@ -110,14 +110,14 @@ export default function GetQuoteForm({
       } \nServices Required: ${formData["service"].join(", ")} \n Message: ${
         formData.message
       } `,
-      portalID: "242297103",
-      hubspotFormID: "b19434de-3a23-496c-bb9b-260ff424bf98",
+      portalID: "441994964",
+      hubspotFormID: "8efe8ec4-ad13-4e86-88fa-fbf1b4daab25",
       hubspotFormObject: [
         { name: "firstname", value: formData.firstname },
         { name: "email", value: formData.email },
-        { name: "phone", value: formData.phone },
-        { name: "pick_up_address", value: formData.pickUpAddress },
-        { name: "drop_off_address", value: formData.dropOffAddress },
+        { name: "mobilephone", value: formData.phone },
+        { name: "moving_from", value: formData.pickUpAddress },
+        { name: "moving_to", value: formData.dropOffAddress },
         { name: "property_type", value: formData.propertyType },
         { name: "services_required", value: formData["service"].join(", ") },
         { name: "message", value: formData.message },

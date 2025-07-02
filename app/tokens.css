@@ -24,7 +24,7 @@
  --light-surface: rgb(250 248 255);
  --light-on-surface: rgb(0 0 0);
  --light-surface-variant: rgb(225 225 239);
- --light-on-surface-variant: rgb(0 0 0);
+ --light-on-surface-variant: rgb(5, 16, 81);
  --light-outline: rgb(41 44 54);
  --light-outline-variant: rgb(70 73 83);
  --light-shadow: rgb(0 0 0);

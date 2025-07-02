@@ -30,7 +30,7 @@ console.log(graphic)
       <Container maxWidth="lg" className="container">
         <div className="grid gap-16">
           <Paper className="content-wrapper border-radius-12" variant="outlined" >
-            <Typography component={"h1"} variant={"h4"} className="title semi-bold">
+            <Typography component={"h1"} variant={"h4"} className="title">
               {title} 
             </Typography>
             <Typography component={"div"} variant={"body1"} className="description mt-16">
@@ -71,8 +71,10 @@ padding-top: 120px;
       @media(max-width: 600px){ 
         padding:  16px; 
       }
-      title{ 
-       
+      .title{ 
+       font-weight: 750; 
+       color: var(--light-on-surface-variant); 
+        margin-bottom: 8px !important;
       }
     }
     .form-wrapper{ 

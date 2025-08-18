@@ -15,6 +15,16 @@ export const contactInfo = {
                 url: "/email.png", 
                 alt: "Email icon" 
             },
+        },
+        {
+            url: "#", 
+            label: "23 Harold Street, Glenroy 3046", 
+            icon: { 
+                url: "/map.png", 
+                alt: "Map icon" 
+            },
         }
     ]
 }
+
+// 23 Harold Street, Glenroy, Victoria, Australia 3046

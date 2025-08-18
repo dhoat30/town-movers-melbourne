@@ -7,6 +7,9 @@ import EmailCircleIcon from "../Icons/EmailCircleIcon";
 import PhoneCircleIcon from "../Icons/PhoneCircleIcon";
 import LocationCircleIcon from "../Icons/LocationCircleIcon";
 import Image from "next/image";
+import Fab from '@mui/material/Fab';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+
 export default function ContactInfo({ contactInfo, className }) {
   if (contactInfo?.info?.length === 0) return null;
   const infoComponent = contactInfo?.info?.map((info, index) => {
@@ -26,12 +29,16 @@ export default function ContactInfo({ contactInfo, className }) {
     );
   });
   return (
+    <>
+   
     <Container className={className}>
       <Typography variant="h6" component="div" sx={{ marginBottom: "8px" }}>
         Contact
       </Typography>
       {infoComponent}
     </Container>
+          <FabStyle className={"fab"} href={contactInfo.info[0].url} aria-label="Phone" > <LocalPhoneIcon color="white" sx={{fontSize: "2rem", color: "white"}}/> </FabStyle>
+          </>
   );
 }
 const Container = styled.div`
@@ -60,4 +67,18 @@ const Container = styled.div`
       }
     }
   }
+  .fab{ 
+   
+  }
 `;
+const FabStyle = styled(Fab)`
+ position: fixed !important; 
+  bottom: 80px !important; /* Adjust vertical position */
+  right: 8px !important; /* Adjust horizontal position */
+  width: 60px !important; 
+  height: 60px !important; 
+  background-image: linear-gradient(92.06deg, rgb(94, 106, 184) 42.78%, rgb(43, 122, 191) 100%);
+  @media(min-width: 900px) {
+    display: none !important;
+  }
+`

@@ -42,6 +42,7 @@ export default function GetQuoteForm({
   const [error, setError] = useState(false);
   const [newSubmission, setNewSubmission] = useState(false);
   const [mapsLoaded, setMapsLoaded] = useState(false);
+  const[googleAdsAddress, setGoogleAdsAddress] = useState({pickUpAddress: {}, dropOffAddress:{}}); // For Google Ads conversion tracking
 
   const handleChange = (id, value, isSelectMultiple) => {
     console.log(value);
@@ -94,6 +95,9 @@ export default function GetQuoteForm({
     if (!allFieldsValid) {
       return; // Stop the function if any field is invalid o  r empty
     }
+    const parts = formData.firstname.trim().split(/\s+/); // split by any whitespace
+    const firstName = parts[0] || "";
+    const lastName = parts.slice(1).join(" ") || ""; // everything after firstName
 
     const dataPayload = {
       email: formData.email,
@@ -167,6 +171,22 @@ export default function GetQuoteForm({
           setIsSuccess(true);
           setNewSubmission(false);
           setError(false);
+          if (typeof window !== "undefined" && window.dataLayer) {
+            window.dataLayer.push({
+              event: "multipart_quote_form_submission",
+              formName: "Moving Quote",
+              formData: {
+                firsName: firstName,
+                lastName: lastName,
+                email: formData.email,
+                phone: formData.phone,
+                street: `${googleAdsAddress.pickUpAddress.streetNumber} ${googleAdsAddress.pickUpAddress.streetName}`,
+                city: googleAdsAddress.pickUpAddress.city,
+                region: googleAdsAddress.pickUpAddress.region,
+                postCode: googleAdsAddress.pickUpAddress.postalCode,
+              },
+            });
+          }
           router.push("/form-submitted/thank-you");
         } else {
           setIsLoading(false);
@@ -239,8 +259,12 @@ export default function GetQuoteForm({
                 // When user selects an address from suggestions
                 setFormData((prevData) => ({
                   ...prevData,
-                  [field.id]: selectedAddress,
+                  [field.id]: selectedAddress.formattedAddress
                 }));
+                setGoogleAdsAddress((prevData=> ({ 
+                  ...prevData, 
+                  [field.id]: selectedAddress.unformattedAddress
+                }))); // Set the address for Google Ads conversion tracking
                 // Reset errors if any
                 if (errors[field.id]) {
                   setErrors({ ...errors, [field.id]: false });

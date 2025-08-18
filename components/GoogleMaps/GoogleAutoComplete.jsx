@@ -24,7 +24,7 @@ export default function GoogleAutocomplete({
       // Initialize Autocomplete
       autocompleteRef.current = new window.google.maps.places.Autocomplete(inputRef.current, {
         types: ["address"],
-        componentRestrictions: { country: "nz" }, // Restrict to New Zealand
+        componentRestrictions: { country: "au" }, // Restrict to Australia 
       });
 
       // Add listener for place selection

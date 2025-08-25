@@ -1,7 +1,7 @@
 "use client";
 import styled from "@emotion/styled";
 import Container from "@mui/material/Container";
-import ThemeProvider from "@mui/material/styles/ThemeProvider";
+import { ThemeProvider } from '@mui/material/styles';
 import Typography from "@mui/material/Typography";
 import { lightTheme } from "@/utils/themeSettings";
 import HeroImage from "@/components/UI/Hero/OptimizedHero/HeroImage";

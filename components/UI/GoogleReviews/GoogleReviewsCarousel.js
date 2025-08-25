@@ -9,8 +9,10 @@ import GoogleReviewCard from "./GoogleReviewCard/GoogleReviewCard";
 import Typography from "@mui/material/Typography";
 import styles from "./GoogleReviewsCarousle.module.scss";
 import useEmblaCarousel from "embla-carousel-react";
-import PrevIcon from "@/Components/UI/Icons/PrevIcon";
-import NextIcon from "@/Components/UI/Icons/NextIcon";
+// import PrevIcon from "@/Components/UI/Icons/PrevIcon";
+// import NextIcon from "@/Components/UI/Icons/NextIcon";
+import PrevIcon from "../Icons/PrevIcon";
+import NextIcon from "../Icons/NextIcon";
 export default function GoogleReviewsCarousel({ data }) {
   console.log("GoogleReviewsCarousel data:", data);
   if (!data && data.length === 0) return null;

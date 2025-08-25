@@ -5,7 +5,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import { theme } from "@/utils/themeSettings";
-import { ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from '@mui/material/styles';
 
 // Custom hook to handle scroll and opacity
 const useScrollAndOpacity = (ref) => {

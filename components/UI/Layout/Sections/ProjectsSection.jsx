@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import React from "react";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import { ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from '@mui/material/styles';
 import { lightTheme } from "@/utils/themeSettings";
 import Image from "next/image";
 import LocationOnIcon from "@mui/icons-material/LocationOn";

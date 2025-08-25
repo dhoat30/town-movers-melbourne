@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { theme } from "@/utils/themeSettings";
-import { ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from '@mui/material/styles';
 export default function RegularProcess({ title, description, cards }) {
   if (!cards) return null;
 

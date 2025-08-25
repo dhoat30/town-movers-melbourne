@@ -1,95 +1,58 @@
-'use client';
+"use client";
 
-import { useRef } from "react";
+import React, { useCallback } from "react";
 import Container from "@mui/material/Container";
-import styled from "@emotion/styled";
-import Slider from "react-slick";
-import CarouselArrows from "../CarouselArrows/CarouselArrows";
 import Link from "next/link";
 import Button from "@mui/material/Button";
 import CallMadeOutlinedIcon from "@mui/icons-material/CallMadeOutlined";
 import GoogleReviewCard from "./GoogleReviewCard/GoogleReviewCard";
 import Typography from "@mui/material/Typography";
+import styles from "./GoogleReviewsCarousle.module.scss";
+import useEmblaCarousel from "embla-carousel-react";
+import PrevIcon from "@/Components/UI/Icons/PrevIcon";
+import NextIcon from "@/Components/UI/Icons/NextIcon";
+export default function GoogleReviewsCarousel({ data }) {
+  console.log("GoogleReviewsCarousel data:", data);
+  if (!data && data.length === 0) return null;
+  const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", loop: true });
 
-var settings = {
-  dots: true,
-  arrows: false,
-  speed: 500,
-  slidesToShow: 4,
-  slidesToScroll: 1,
-  autoplay: false,
-  centerMode: true,
-  centerPadding: "40px",
-  draggable: true,
-  infinite: true,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 2,
-      },
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 1,
-      },
-    },
-  ],
-};
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
 
-export default function GoogleReviewsCarousel({data}) {
-  console.log(data)
-  if (!data || data.length === 0) return null;
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
 
-  // slider arrow functionality
-  const sliderRef = useRef(null);
-
-
-  const next = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickNext();
-    }
-  };
-
-  const previous = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickPrev();
-    }
-  };
-  // filter review comment 
-  const filteredReviewData = data.filter((item) => { 
-    return (    item.stars === 5 &&
-      typeof item.text === "string" 
-      )
+  // filter review comment
+  const filteredReviewData = data.filter((item) => {
+    return item.rating === 5 && typeof item.snippet === "string";
   });
 
-  const testimonialCardsJSX = filteredReviewData.map(
-    (item, index) => {
-      if (index > 10) return null;
-      return (
-        <GoogleReviewCard
-          key={index}
-          name={item.name}
-          description={item.text}
-          customerPic={item.reviewerPhotoUrl}
-          characterLimit={80}
-        />
-      );
-    }
-  );
+  const testimonialCardsJSX = filteredReviewData.map((item, index) => {
+    if (index > 10) return null;
+    return (
+      <GoogleReviewCard
+      key={index}
+      name={item.user.name}
+      description={item.snippet}
+      customerPic={item.user.thumbnail}
+      characterLimit={80}
+    />
+    );
+  });
 
   return (
-    <Section>
-      <Container maxWidth="xl">
-      <div className="title-row">
+    <section className={`${styles.section} mt-40`} id="reviews">
+      <Container maxWidth="xl" className={`${styles.container}`}>
+        <div className={`${styles.titleRow}`}>
           <Typography
             variant="h2"
             component="h2"
             className="title"
             align="center"
           >
-          Google Reviews
+            Google Reviews
           </Typography>
           <Typography
             variant="body1"
@@ -97,53 +60,49 @@ export default function GoogleReviewsCarousel({data}) {
             className="description mt-16"
             align="center"
           >
-Explore authentic customer feedback and see why people trust us. Each review reflects the quality and dedication we bring to every service we provide.        </Typography>
-
-
+            Explore authentic customer feedback and see why people trust us.
+            Each review reflects the quality and dedication we bring to every
+            service we provide.
+          </Typography>
         </div>
-        <div className="arrows-wrapper">
-          <CarouselArrows next={next} previous={previous} />
+        <div className="carousel-wrapper embla mt-32">
+        <div className="embla__viewport" ref={emblaRef}>
+          <div className="embla__container">{testimonialCardsJSX}</div>
         </div>
-      </Container>
-      <div className="carousel-wrapper mt-16">
-        <Slider ref={sliderRef} {...settings}>
-          {testimonialCardsJSX}
-        </Slider>
+
+        <div className="embla__buttons_wrapper flex gap-8 justify-end mt-16">
+          <button
+            className="embla__prev"
+            onClick={scrollPrev}
+            aria-label="Previous slide"
+            data-direction="prev"
+          >
+            <PrevIcon />
+          </button>
+          <button
+            className="embla__next"
+            onClick={scrollNext}
+            aria-label="Next slide"
+            data-direction="next"
+          >
+            <NextIcon />
+          </button>
+        </div>
       </div>
-      <Container maxWidth="xl" className="cta-wrapper mt-40">
-        <Link href={"https://g.page/r/CezW5iWspjdFEAE/review"} target="_blank">
+      </Container>
+
+      {/* <Container maxWidth="xl" className="cta-wrapper mt-16 flex justify-center flex-wrap gap-16">
+        <Link href={"https://g.page/r/CRY0fyyR4ApsEBM/review"} target="_blank">
           <Button variant={`contained`} endIcon={<CallMadeOutlinedIcon />}>
-           Leave a Review 
+            Leave a Review
           </Button>
         </Link>
         <Link href="/customer-reviews">
-          <Button variant={`outlined`}>
-            Read All Reviews
-          </Button>
+          <Button variant={`outlined`}>Read All Reviews</Button>
         </Link>
-      </Container>
-    </Section>
+      </Container> */}
+    </section>
   );
 }
 
-const Section = styled.section`
-background:var(--light-surface-container);
-  border-top: 1px solid var(--light-outline-variant);
-  border-bottom: 1px solid var(--light-outline-variant);
-  padding: 80px 0;
-  @media (max-width: 600px) {
-    padding: 40px 0;
-  }
-  .arrows-wrapper {
-    display: flex;
-    justify-content: flex-end;
-  }
-  .carousel-wrapper {
-  }
-  .cta-wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap; 
-  }
-`;
+

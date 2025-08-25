@@ -5,8 +5,14 @@ export const headerLinks = [
         url: "/",
        
         },
-    
-    
+        {
+            id: 1,
+            label: "Reviews",
+            url: "#reviews",
+           
+            },
+        
+        
 
         {
             id: 1,

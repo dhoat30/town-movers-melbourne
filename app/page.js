@@ -2,6 +2,8 @@
 // import OptimizedHero from '@/components/UI/Hero/OptimizedHero/OptimizedHero'
 // import TechLogos from '@/components/UI/TechLogos/TechLogos'
 // import USP from '@/components/UI/USP/USP'
+export const revalidate = 2592000; // applies to both page and metadata
+
 import Header from '@/components/UI/Header/Header'
 import GetQuotePage from '@/components/Pages/GetQuotePage/GetQuotePage'
 import {getSinglePostData, getGoogleReviews} from '@/utils/fetchData'
@@ -52,7 +54,7 @@ export async function generateMetadata(props, parent) {
 
   export default async function PrimeCleanExperts() {
     const data = await getSinglePostData( 'town-movers-melbourne', '/wp-json/wp/v2/moving-company')
-    // const googleReviews = await getGoogleReviews()
+    const googleReviews = await getGoogleReviews()
     if(!data) return {notFound: true}
     const sections = data[0]?.acf?.layout
     return (
@@ -64,10 +66,10 @@ export async function generateMetadata(props, parent) {
                 {/* <Layout sections={postData[0]?.acf?.sections} /> */}
                 {/* <USP showTitle={true} statsArray={options.stats.items} cards={options.usp.items} title={options.usp.section_title} description={options.usp.section_description} /> */}
                 
-                 {/* <GoogleReviewsCarousel data={googleReviews} /> */}
+                 <GoogleReviewsCarousel data={googleReviews} />
 
             </main>
-            <Footer showFooterCta={false} className="mt-32"/>
+            <Footer showFooterCta={false} />
         </>
     )
 }

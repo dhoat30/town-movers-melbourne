@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
         />
               <body >
                   {/* 3) GTM noscript fallback */}
-          <noscript>
+          <noscript>  
           <iframe 
             src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`} 
             height="0" 

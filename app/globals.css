@@ -368,7 +368,7 @@ strong {
   padding-bottom: 32px;
 }
 
-// general padding 
+/* // general padding  */
 
 .grid{ 
   display: grid; 
@@ -438,7 +438,7 @@ strong {
   gap: 80px;
 }
 
-// button styles 
+/* // button styles  */
 .text-link{ 
   color: var(--light-primary); 
   padding: 8px 0; 
@@ -449,7 +449,7 @@ strong {
   }
 }
 
-// embla carousel 
+/* // embla carousel  */
 .embla {
   overflow: hidden;
 }
@@ -501,7 +501,7 @@ strong {
  
 }
 
-// mui slider icon 
+/* // mui slider icon  */
 .hours-calculator-slider{ 
   display: none; 
   .MuiSlider-thumb{ 
@@ -515,7 +515,7 @@ strong {
   }
 }
 
-// footer contact label 
+/* // footer contact label  */
 .footer-contact-wrapper{ 
   
  a { 
@@ -532,7 +532,7 @@ strong {
  }
 }
 
-// policy-html
+/* // policy-html */
 .policy-html{ 
   h2{ 
     font-size: 2rem; 

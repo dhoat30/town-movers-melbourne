@@ -32,7 +32,6 @@ export default function GetQuotePage({ data, websitePackageOffer, heroUSP }) {
   // } else {
   //   graphicComponent = <HeroImage image={data.acf.hero_section.image} />;
   // }
-console.log(data)
   
   return (
     <ThemeProvider theme={lightTheme}>

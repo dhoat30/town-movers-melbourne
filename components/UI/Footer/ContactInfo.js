@@ -22,9 +22,10 @@ export default function ContactInfo({ contactInfo, className }) {
           <Image src={info.icon.url} alt={info.icon.alt} fill />
         </span>
 
-        <Typography variant="body1" component="span" className="label">
+        <Typography variant="body1" component="span" className="label" color="var(--light-primary)">
           {info.label}
         </Typography>
+       
       </Link>
     );
   });

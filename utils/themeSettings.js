@@ -18,23 +18,24 @@ export const lightTheme = createTheme({
   typography: {
     fontFamily: ["var(--font-work-sans)", "Segoe UI", "sans-serif"].join(","),
     h1: {
-      fontSize: "5rem",
-      fontWeight: 600,
-      color: "var(--light-on-surface)",
+      fontSize: "4.5rem",
+      fontWeight: 800,
+      lineHeight: "110%", 
+      color: "var(--light-primary)",
 
       "@media (max-width:900px)": {
         fontSize: "3rem",
       },
     },
     h2: {
-      fontWeight: 600,
+      fontWeight: 700,
       fontSize: "3rem",
-      lineHeight: "3.4rem",
+      lineHeight: "110%",
       color: "var(--light-on-surface)",
 
       "@media (max-width:600px)": {
         fontSize: "2.5rem",
-        lineHeight: "2.8rem",
+
       },
     },
     h3: {
@@ -47,13 +48,14 @@ export const lightTheme = createTheme({
       },
     },
     h4: {
-      fontWeight: 500,
-    
+      fontWeight: 700,
+      fontSize: "3rem", 
+      lineHeight:"110%", 
       color: "var(--light-on-surface)",
     },
     h5: {
-      fontWeight: 400,
-      letterSpacing: "0.02rem",
+      fontWeight: 500,
+      letterSpacing: "-0.05rem",
 
       color: "var(--light-on-surface)",
     },
@@ -62,7 +64,7 @@ export const lightTheme = createTheme({
       color: "var(--light-on-surface)",
     },
     body1: {
-      color: "var( --light-on-surface-variant)",
+      fontWeight: "500", 
     },
     body2: {},
     subtitle1: {
@@ -78,6 +80,7 @@ export const lightTheme = createTheme({
           color: "var(--light-on-primary)",
           paddingRight: "32px",
           paddingLeft: "32px",
+          
         },
         outlined: {
           border: "1px solid var(--light-primary)",
@@ -113,7 +116,7 @@ export const theme = createTheme({
       },
     },
     h2: {
-      fontWeight: 600,
+      fontWeight: 800,
       color: "var(--dark-on-surface)",
       "@media (max-width:600px)": {
         fontSize: "2.5rem",
@@ -125,9 +128,10 @@ export const theme = createTheme({
       color: "var(--dark-on-surface)",
     },
     h4: {
-      fontWeight: 500,
+      fontWeight: 700,
       color: "var(--dark-on-surface)",
-
+      lineHeight: "100%", 
+      fontSize: "2rem", 
       "@media (max-width:900px)": {
         fontSize: "1.5rem",
       },
@@ -146,8 +150,7 @@ export const theme = createTheme({
     },
     body1: {
       fontWeight: 350,
-      letterSpacing: "0.02rem",
-      color: "var( --dark-on-surface-variant)",
+      letterSpacing:"-0.03rem", 
     },
     body2: {
       fontWeight: 300,

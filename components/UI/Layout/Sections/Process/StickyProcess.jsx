@@ -51,7 +51,7 @@ export default function StickyProcess({ title, description, cards }) {
       id={item.title.replace(/\s/g, "-").toLowerCase()}
     >
       <div>
-        <Typography variant="h5" component="h2" className="title">
+        <Typography variant="h2" component="h3" className="title">
           {item.title}
         </Typography>
         <Typography
@@ -69,7 +69,7 @@ export default function StickyProcess({ title, description, cards }) {
       <Section as={motion.section}>
         <Container maxWidth="lg" className="container">
           <div className="title-wrapper">
-            <Typography variant="h3" component="h2" className="title">
+            <Typography variant="h2" component="h2" className="title">
               {title}
             </Typography>
             <div
@@ -180,6 +180,7 @@ const Section = styled.section`
           margin: 16px 0;
         }
         .title {
+          text-transform: uppercase;
           .step-title-number-wrapper {
             display: grid;
             grid-template-columns: 32px auto;
@@ -232,19 +233,40 @@ const Section = styled.section`
         margin-top: 40px;
         .title {
           margin-bottom: 16px;
+          text-transform: uppercase;
+          font-weight: 800;
         }
         .description {
           
           p {
             color: var(--dark-on-surface-variant);
-            font-size: 1rem;
+            font-size: 1.4rem;
             font-weight: 400 !important;
             line-height: 1.5rem;
-            margin-top: 16px;
+            margin-top: 8px;
           }
-          li {
-            margin-top: 4px;
+          h4{ 
+            color: white; 
+            font-size: 2rem;
           }
+          ul{ 
+            position: relative; 
+            margin-top: 24px; 
+            margin-left: 32px; 
+            li{ 
+              position: relative; 
+              p{ 
+                font-size: 1.2rem; 
+              }
+            }
+          li::before {
+          content: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 81 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M40.1202 0C18.0402 0 0.120178 17.92 0.120178 40C0.120178 62.08 18.0402 80 40.1202 80C62.2002 80 80.1202 62.08 80.1202 40C80.1202 17.92 62.2002 0 40.1202 0ZM40.1202 72C22.4802 72 8.12018 57.64 8.12018 40C8.12018 22.36 22.4802 8 40.1202 8C57.7602 8 72.1202 22.36 72.1202 40C72.1202 57.64 57.7602 72 40.1202 72ZM58.4802 22.32L32.1202 48.68L21.7602 38.36L16.1202 44L32.1202 60L64.1202 28L58.4802 22.32Z" fill="%23ffffff"/></svg>'); 
+            position: absolute;
+            top: 2px;
+            left: -28px;
+          }
+          }
+       
         }
       }
     }

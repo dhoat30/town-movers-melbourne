@@ -9,7 +9,6 @@ import GetQuoteForm from "@/components/UI/Forms/GetQuoteForm";
 import Video from "@/components/UI/Video/Video";
 export default function FormSection({ title, description, usp, graphic }) {
   let graphicComponent = null 
-console.log(graphic)
   if(graphic.graphic_type === "image" &&  graphic.image ){ 
     const paddingBottom = graphic.image.height/graphic.image.width * 100
     graphicComponent = <div className="image-wrapper border-radius-12" style={{paddingBottom: `${paddingBottom}%`}}>
@@ -30,7 +29,7 @@ console.log(graphic)
       <Container maxWidth="lg" className="container">
         <div className="grid gap-16">
           <Paper className="content-wrapper border-radius-12" variant="outlined" >
-            <Typography component={"h1"} variant={"h4"} className="title">
+            <Typography component={"h1"} variant={"h2"} className="title">
               {title} 
             </Typography>
             <Typography component={"div"} variant={"body1"} className="description mt-16">
@@ -61,7 +60,7 @@ padding-top: 120px;
   }
   .grid{ 
     display: grid; 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 500px;
     align-items: start;
     @media(max-width: 1000px){ 
       grid-template-columns: 1fr; 
@@ -73,7 +72,7 @@ padding-top: 120px;
       }
       .title{ 
        font-weight: 750; 
-       color: var(--light-on-surface-variant); 
+       color: var(--light-primary); 
         margin-bottom: 8px !important;
       }
     }

@@ -55,6 +55,7 @@ export async function generateMetadata(props, parent) {
   export default async function PrimeCleanExperts() {
     const data = await getSinglePostData( 'town-movers-melbourne', '/wp-json/wp/v2/moving-company')
     const googleReviews = await getGoogleReviews()
+    console.log("google reviews data", googleReviews)
     if(!data) return {notFound: true}
     const sections = data[0]?.acf?.layout
     return (
@@ -69,7 +70,7 @@ export async function generateMetadata(props, parent) {
                  <GoogleReviewsCarousel data={googleReviews} />
 
             </main>
-            <Footer showFooterCta={false} />
+            <Footer showFooterCta={true} footerCtaData={{title:"Ready to Move Without the Stress?", description:"Whether you're moving a single room or a five-bedroom home, Town Movers makes it smooth, safe and affordable.", cta_link: {url: "/", title: 'GET MOVING QUOTE'}  }} />
         </>
     )
 }

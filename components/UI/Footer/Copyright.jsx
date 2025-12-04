@@ -24,7 +24,7 @@ export default function Copyright() {
 }
 const PaperStyle = styled.div`
   padding: 8px 0;
-  background: var(--dark-surface-container-low);
+  background: var(--light-surface-container-high);
   .content-wrapper {
     display: flex;
     justify-content: center;
@@ -37,8 +37,8 @@ const PaperStyle = styled.div`
     span {
       display: block;
       width: 100%;
-      color: var(--dark-on-surface);
-      font-weight: 300;
+      color: var(--light-on-surface);
+      font-weight: 400;
       text-align: center;
     }
     .copyright-wrapper {
@@ -47,7 +47,7 @@ const PaperStyle = styled.div`
       a {
         &:hover {
           text-decoration: underline;
-          color: white;
+          color: var(--light-primary);
         }
        
       }
@@ -59,7 +59,7 @@ const PaperStyle = styled.div`
         &::after {
           content: "|";
           margin: 0 8px;
-          color: var(--dark-on-surface);
+          color: var(--light-on-surface);
         }
         /* not the last element  */
         &:last-child {

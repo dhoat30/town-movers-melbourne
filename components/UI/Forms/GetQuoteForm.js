@@ -45,7 +45,6 @@ export default function GetQuoteForm({
   const[googleAdsAddress, setGoogleAdsAddress] = useState({pickUpAddress: {}, dropOffAddress:{}}); // For Google Ads conversion tracking
 
   const handleChange = (id, value, isSelectMultiple) => {
-    console.log(value);
     let newValue = value.target ? value.target.value : value;
 
     setFormData((prevFormData) => ({
@@ -165,7 +164,6 @@ export default function GetQuoteForm({
 
     Promise.all([axios(configHubspot), axios(configSendMail)])
       .then(function (response) {
-        console.log(response);
         if (response[0].status === 200) {
           setIsLoading(false);
           setIsSuccess(true);

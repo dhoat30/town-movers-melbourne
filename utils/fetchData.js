@@ -45,7 +45,7 @@ export const getOptions = async () => {
   // get reivews
   export const getGoogleReviews = async () => {
     const baseUrl = process.env.siteUrl; // Change this in production
-
+    console.log(baseUrl)
     const res = await fetch(`${baseUrl}/api/google-reviews`, { next: { revalidate: 2592000 } });
 
     if (!res.ok) { 

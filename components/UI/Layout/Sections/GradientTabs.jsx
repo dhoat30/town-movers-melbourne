@@ -18,11 +18,10 @@ export default function GradientTabs({ title, subtitle, description, cards }) {
           <div className="apple-intelligence-glow apple-intelligence-glow-2"></div>
           <div className="title-row">
             <Typography
-              variant="h2"
+              variant="h1"
               component="h2"
               className="title"
               align="center"
-              color="var(--light-on-surface)"
             >
               {title}
             </Typography>
@@ -53,7 +52,10 @@ const Section = styled.section`
 
     }
 .container { 
-
+@media (max-width: 600px) {
+    max-width: unset;
+    padding: unset; 
+}
 }
   .apple-intelligence-glow {
     position: absolute;
@@ -101,14 +103,13 @@ const Section = styled.section`
     border-radius: 24px;
     margin: 0 auto;
     position: relative;
-    
+    border: 1px solid var(--light-outline-variant); 
     @media (max-width: 900px) {
       padding: 40px 16px;
 
     }
     @media (max-width: 450px){ 
-      padding: 0;
-      background: none;
+    
 
     }
     .title-row {

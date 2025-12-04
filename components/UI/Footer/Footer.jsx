@@ -113,8 +113,11 @@ className,
         {informationLinks.map((link, index) => {
           return (
             <li key={index}>
-              <Link href={link.url} className="body2">
+              <Link href={link.url} >
+              <Typography component="span" variant="body1" color="var(--light-primary)"> 
                 {link.label}
+              </Typography>
+            
               </Link>
             </li>
           );
@@ -163,7 +166,7 @@ className,
 }
 const FooterSection = styled.section`
   padding: 40px 0;
-  background: var(--light-surface-container-high);
+  background: var(--light-surface-container);
   @media (max-width: 900px) {
     padding: 32px 0;
   }

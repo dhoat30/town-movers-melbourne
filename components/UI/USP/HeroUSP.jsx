@@ -12,7 +12,7 @@ export default function HeroUSP({ data, className }) {
         {data.text_usp.map((item, index) => {
           return (
             <Typography
-              variant="subtitle2"
+              variant="subtitle1"
               component="div"
               className="text-usp"
               key={index}
@@ -32,8 +32,8 @@ export default function HeroUSP({ data, className }) {
                 key={index}
                 src={item.image.url}
                 alt={item.image.alt}
-                width={item.image.width}
-                height={item.image.height}
+                width={item.image.width / 2.5}
+                height={item.image.height/2.5}
               />
             );
           })}

@@ -31,7 +31,40 @@ function CustomTabPanel(props) {
     >
       {value === index && (
         <div className="tab-content-wrapper">
-          <div className="image-container">
+         
+          <div className="content-wrapper">
+            {title && 
+               <Typography variant="h4" component="h3" className="title">
+               {title}
+             </Typography>
+            }
+         
+            <Typography
+          
+              variant="body1"
+              component="div"
+              className="description body1 mt-16"
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
+            <div className="cta-wrapper flex gap-8 flex-wrap mt-24">
+              {ctaArray.length > 0 &&
+                ctaArray.map((cta, index) => {
+                  return (
+                    <Link key={index} href={cta.url} className="cta">
+                      <Button
+                        variant={`${index === 0 ? "contained" : "outlined"}`}
+                        color="primary"
+                        className="button"
+                        disableElevation
+                      >
+                        {cta.label}
+                      </Button>
+                    </Link>
+                  );
+                })}
+            </div>
+          </div>
+           <div className="image-container">
             {images.before_image && images.after_image && (
               <BeforeAfter
                 showTitle={false}
@@ -57,38 +90,6 @@ function CustomTabPanel(props) {
                 />
               </div>
             )}
-          </div>
-          <div className="content-wrapper">
-            {title && 
-               <Typography variant="h4" component="h3" className="title">
-               {title}
-             </Typography>
-            }
-         
-            <Typography
-              color="var(--light-on-surface)"
-              variant="body1"
-              component="div"
-              className="description body1 mt-16"
-              dangerouslySetInnerHTML={{ __html: description }}
-            />
-            <div className="cta-wrapper flex gap-8 flex-wrap mt-24">
-              {ctaArray.length > 0 &&
-                ctaArray.map((cta, index) => {
-                  return (
-                    <Link key={index} href={cta.url} className="cta">
-                      <Button
-                        variant={`${index === 0 ? "contained" : "outlined"}`}
-                        color="primary"
-                        className="button"
-                        disableElevation
-                      >
-                        {cta.label}
-                      </Button>
-                    </Link>
-                  );
-                })}
-            </div>
           </div>
         </div>
       )}
@@ -182,14 +183,12 @@ const Container = styled.div`
         color: var(--light-on-surface);
       }
       .description {
-        color: var(--light-on-surface-variant);
+      
       }
     }
   }
   .description {
     strong {
-      color: var(--light-secondary);
-      letter-spacing: 0.1rem;
     }
   }
   .image-container {

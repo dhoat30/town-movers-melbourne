@@ -247,16 +247,16 @@ ul {
 .body1 p,
 .body1 strong {
   margin: 8px 0 8px 0;
-  font-weight: 400;
-  color: var(--light-on-surface-variant);
+  font-weight: 500;
   font-family: var(--font-work-sans), Segoe UI, sans-serif;
   font-size: 1rem;
   line-height: 1.5;
+  color: var(--light-on-surface-variant); 
 }
 .body1 strong {
   font-weight: 600 !important;
   display: inline-block;
-  letter-spacing: 0;
+  letter-spacing: -0.03rem;
   margin: 0;
 }
 .body1 ul {

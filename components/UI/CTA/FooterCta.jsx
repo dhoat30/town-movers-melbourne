@@ -15,7 +15,7 @@ export default function FooterCta({ title, description, cta }) {
             <Typography
               component="h2"
               variant="h2"
-              sx={{ fontWeight: 700 }}
+           
               align="center"
               color="white"
               className="title"
@@ -24,7 +24,7 @@ export default function FooterCta({ title, description, cta }) {
             </Typography>
             <Typography
               component="p"
-              variant="body1"
+              variant="h5"
               align="center"
               color="white"
               className="description mt-16"
@@ -78,7 +78,7 @@ background: var(--light-surface-container-lowest);
   }
   .wrapper {
     padding: 120px 0;
-    background: linear-gradient(97deg, #09b054 2.05%, #00720f 98.81%);
+    background: linear-gradient(97deg, #09b0a5 2.05%, #004272 98.81%);
     border-radius: 32px;
     @media (max-width: 900px) {
       padding: 56px 16px;
@@ -88,7 +88,12 @@ background: var(--light-surface-container-lowest);
       margin: 0 auto;
     }
     .title {
-      font-weight: 600;
+      
+    }
+    .description{ 
+      @media(max-width: 600px){ 
+        display: none; 
+      }
     }
     .button-wrapper {
       display: flex;

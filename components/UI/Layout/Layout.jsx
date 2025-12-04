@@ -14,7 +14,6 @@ import TestimonialSection from "./Sections/TestimonialSection";
 import OurWorkSection from "./Sections/OurWorkSection";
 import GradientTabs from "./Sections/GradientTabs";
 export default function Layout({ sections, projectsData }) {
-  console.log(sections)
   if (!sections) return null;
   const sectionsJSX = sections.map((section, index) => {
     if (section.acf_fc_layout === "zigzag_cards") {
@@ -174,7 +173,6 @@ export default function Layout({ sections, projectsData }) {
         }
     }
     if (section.acf_fc_layout === "our_work") {
-        console.log(section)
         return <OurWorkSection key={index} title={section.title} description={section.description} beforeAfterGalleryArr={section.before_after_gallery}/> 
   }
   });

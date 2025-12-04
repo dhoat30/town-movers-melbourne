@@ -30,7 +30,7 @@ export async function GET() {
         cache: "force-cache",
         next: { revalidate: 2592000 }
       });
-
+console.log("response: ", response)
       if (!response.ok) {
         throw new Error(`SerpApi request failed: ${response.statusText}`);
       }

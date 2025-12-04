@@ -33,7 +33,7 @@ export default function RowSection({
             <Typography variant="h6" component="div" className="subtitle">
               {subtitle}
             </Typography>
-            <Typography variant="h3" component="h2" className="title">
+            <Typography variant="h2" component="h2" className="title">
               {title}
             </Typography>
 
@@ -112,7 +112,7 @@ const Section = styled.section`
     align-items: start;
     @media (max-width: 1100px) {
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 40px;
       display: flex;
       flex-direction: column;
     }
@@ -122,7 +122,25 @@ const Section = styled.section`
         top: 100px;
         grid-row: 1 / 2;
       }
-
+#locations-covered{ 
+  ul{ 
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr;
+   
+    @media (max-width: 1100px){ 
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+     @media (max-width: 860px){ 
+      grid-template-columns: 1fr 1fr 1fr  ;
+    }
+      @media (max-width: 860px){ 
+      grid-template-columns: 1fr 1fr   ;
+    }
+    li{ 
+      color: var(--light-primary); 
+    }
+  }
+}
       .subtitle {
         margin: 0 0 8px 0;
       }

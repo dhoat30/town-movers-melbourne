@@ -21,11 +21,11 @@
     "axios": "^1.11.0",
     "embla-carousel-react": "^8.6.0",
     "eslint": "9.34.0",
-    "eslint-config-next": "15.5.0",
+    "eslint-config-next": "15.5.21",
     "framer-motion": "^12.23.12",
     "jquery": "^3.7.1",
     "js-cookie": "^3.0.5",
-    "next": "15.5.0",
+    "next": "15.5.21",
     "next-sitemap": "^4.2.3",
     "react": "19.1.1",
     "react-compare-slider": "^3.1.0",
@@ -38,13 +38,13 @@
     "treeScene2024": "file:"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "15.5.0",
+    "@next/bundle-analyzer": "15.5.21",
     "autoprefixer": "^10.4.21",
     "dotenv": "^17.2.1",
     "postcss": "^8.5.6"
   },
   "engines": {
-    "node": ">=22.0.0", 
+    "node": ">=22.0.0",
     "npm": "10.9.3"
   }
 }

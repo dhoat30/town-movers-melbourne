@@ -1,8 +1,8 @@
 const { siteUrl } = require('./next-sitemap.config');
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 
-    (process.env.NODE_ENV === "production" ? "https://quote.townmovers.com.au" : "http://localhost:3000");
-    const siteName = "AK Movers Auckland"
+    (process.env.NODE_ENV === "production" ? "https://www.townmovers.com.au" : "http://localhost:3000");
+    const siteName = "Town Movers";
 
 // bundle analyzer 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({

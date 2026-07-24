@@ -3,8 +3,8 @@ import { ThemeProvider } from "@mui/material/styles";
 import { lightTheme } from "../utils/themeSettings";
 import { useState, useEffect } from "react";
 import Script from "next/script";
-import LoadingIndicator from "@/Components/UI/Loader/LoadingIndicator";
-import TrackingPersistence from "@/Components/TrackingPersistence/TrackingPersistence";
+import LoadingIndicator from "@/components/UI/Loader/LoadingIndicator";
+import TrackingPersistence from "@/components/TrackingPersistence/TrackingPersistence";
 export default function ClientProvider({ children }) {
   // const [isLoading, setIsLoading] = useState(true);
 

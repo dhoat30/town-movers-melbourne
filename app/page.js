@@ -1,10 +1,10 @@
 export const revalidate = 2592000; // applies to both page and metadata
 
-import Header from '@/Components/UI/Header/Header'
+import Header from '@/components/UI/Header/Header'
 import {getSinglePostData} from '@/utils/fetchData'
-import Footer from '@/Components/UI/Footer/Footer'
-import Layout from '@/Components/UI/Layout/Layout'
-import GoogleReviewsCarousel from '@/Components/UI/GoogleReviews/GoogleReviewsCarousel'
+import Footer from '@/components/UI/Footer/Footer'
+import Layout from '@/components/UI/Layout/Layout'
+import GoogleReviewsCarousel from '@/components/UI/GoogleReviews/GoogleReviewsCarousel'
 import reviewsData from "@/data/google-reviews.json";
 
 

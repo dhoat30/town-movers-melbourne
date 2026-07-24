@@ -1,20 +1,20 @@
 export const servicePropertyMap = {
     Residential: [
-
-        { value: "2 Men + Truck", label: "2 Men + Truck", price: 0 },
+           { value: "2 Men + Truck", label: "2 Men + Truck", price: 0 },
         { value: "3 Men + Truck", label: "3 Men + Truck", price: 0 },
+        { value: "Last-Minute Movers", label: "Last-Minute Movers", price: 0 },
+        { value: "Shared Load", label: "Shared Load", price: 0 },
         { value: "Storage Move", label: "Storage Move", price: 0 },
         { value: "Piano Move", label: "Piano Move", price: 0 },
         { value: "Senior Citizen Move", label: "Senior Citizen Move", price: 0 },
         { value: "Long Distance Move", label: "Long Distance Move", price: 0 },
     ],
     Commercial: [
-               { value: "Small Office Move", label: "Small Office Move", price: 0 },
+     { value: "Small Office Move", label: "Small Office Move", price: 0 },
                { value: "Large Office Move", label: "Large Office Move", price: 0 },
                { value: "Warehouse Move", label: "Warehouse Move", price: 0 },
         // Add more commercial services as needed
     ],
- 
 };
 
 // utils/getQuoteFormData.js
@@ -63,7 +63,7 @@ export const getQuoteFormData = [
         type: 'text',
         required: false,
     },
-    {
+     {
         id: 'dropOffAddress',
         label: 'Moving to',
         type: 'text',
@@ -80,6 +80,12 @@ export const getQuoteFormData = [
         ],
         required: false,
         multiple: false
+    },
+    {
+        id: 'date',
+        label: 'Preferred date',
+        type: 'datePicker',
+        required: false,
     },
     {
         id: 'service',

@@ -1,38 +1,11 @@
 export const headerLinks = [
-    {
-        id: 1,
-        label: "Home",
-        url: "/",
-       
-        },
-       
-        
-        
-        {
-            id: 1,
-            label: "Our Promise",
-            url: "/#gradient-tabs",
-           
-            },
- {
-            id: 1,
-            label: "Service Areas",
-            url: "#services",
-           
-            },
-             {
-            id: 1,
-            label: "Reviews",
-            url: "#reviews",
-           
-            },
-        {
-            id: 1,
-            label: "Contact Us",
-            url: "/#footer",
-           
-            },
+  {
+    id: 1,
+    label: "Home",
+    url: "/",
+  },
+  { label: "Areas Covered", url: "#locations-covered" },
 
-
-]
-
+  { label: "Process", url: "#process" },
+  { label: "Contact Us", url: "#contact" },
+];

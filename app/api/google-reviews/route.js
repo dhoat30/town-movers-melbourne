@@ -25,23 +25,22 @@ export async function GET() {
         apiUrl += `&next_page_token=${pageToken}`;
       }
 
-      // ✅ Cache the SerpAPI request for 30 days
-      const response = await fetch(apiUrl, {
-        cache: "force-cache",
-        next: { revalidate: 2592000 }
-      });
-console.log("response: ", response)
+      const response = await fetch(apiUrl);
       if (!response.ok) {
         throw new Error(`SerpApi request failed: ${response.statusText}`);
       }
 
       const data = await response.json();
+
       if (Array.isArray(data.reviews)) {
         allReviews = allReviews.concat(data.reviews);
       }
 
       // Check for next page token
-      if (data.serpapi_pagination?.next_page_token) {
+      if (
+        data.serpapi_pagination &&
+        data.serpapi_pagination.next_page_token
+      ) {
         pageToken = data.serpapi_pagination.next_page_token;
         pageCount++;
       } else {

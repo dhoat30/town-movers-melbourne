@@ -5,37 +5,36 @@ export const lightTheme = createTheme({
   palette: {
     mode: "light",
     primary: {
-      main: "#0c2e79",
+      main: "#01224e",
     },
     secondary: {
-      main: "#0c2e79",
+      main: "#007444",
     },
     tertiary: {
-      main: "#0c2e79",
+      main: "#02965a",
     },
     contrastThreshold: 4.5,
   },
   typography: {
     fontFamily: ["var(--font-work-sans)", "Segoe UI", "sans-serif"].join(","),
     h1: {
-      fontSize: "4.5rem",
-      fontWeight: 800,
-      lineHeight: "110%", 
-      color: "var(--light-primary)",
-
+      fontSize: "4rem",
+      fontWeight: "800 !important",
+      color: "var(--light-on-surface)",
+      lineHeight: "100%", 
       "@media (max-width:900px)": {
         fontSize: "3rem",
       },
     },
     h2: {
-      fontWeight: 700,
+      fontWeight: 800,
       fontSize: "3rem",
       lineHeight: "110%",
       color: "var(--light-on-surface)",
 
       "@media (max-width:600px)": {
-        fontSize: "2.5rem",
-
+        fontSize: "2rem",
+  
       },
     },
     h3: {
@@ -48,23 +47,25 @@ export const lightTheme = createTheme({
       },
     },
     h4: {
-      fontWeight: 700,
-      fontSize: "3rem", 
-      lineHeight:"110%", 
+      fontWeight: 500,
+    
       color: "var(--light-on-surface)",
     },
     h5: {
-      fontWeight: 500,
-      letterSpacing: "-0.05rem",
-
+      fontWeight: 600,
       color: "var(--light-on-surface)",
+         "@media (max-width:900px)": {
+        fontSize: "1.2rem",
+        lineHeight: "140%",
+      },
     },
 
     h6: {
+      fontWeight: 400,
       color: "var(--light-on-surface)",
     },
     body1: {
-      fontWeight: "500", 
+      color: "var( --light-on-surface-variant)",
     },
     body2: {},
     subtitle1: {
@@ -76,15 +77,24 @@ export const lightTheme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: "50px",
+ borderRadius: "50px",
           color: "var(--light-on-primary)",
           paddingRight: "32px",
           paddingLeft: "32px",
-          
+          fontSize: "1.1rem",
+          textTransform: "inherit",
+          boxShadow: "none",
+          fontWeight: "500",
+
         },
         outlined: {
           border: "1px solid var(--light-primary)",
           color: "var(--light-primary)",
+        },
+             text: {
+          color: "var(--light-primary)",
+          display: "inline-block",
+          padding: "12px 0",
         },
       },
     },
@@ -95,13 +105,13 @@ export const theme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#0c2e79",
+      main: "#adc6e8",
     },
     secondary: {
-      main: "#0c2e79",
+      main: "#74e1aa",
     },
     tertiary: {
-      main: "#0c2e79",
+      main: "#9aecbf",
     },
     contrastThreshold: 4.5,
   },
@@ -116,7 +126,7 @@ export const theme = createTheme({
       },
     },
     h2: {
-      fontWeight: 800,
+      fontWeight: 600,
       color: "var(--dark-on-surface)",
       "@media (max-width:600px)": {
         fontSize: "2.5rem",
@@ -128,10 +138,9 @@ export const theme = createTheme({
       color: "var(--dark-on-surface)",
     },
     h4: {
-      fontWeight: 700,
+      fontWeight: 500,
       color: "var(--dark-on-surface)",
-      lineHeight: "100%", 
-      fontSize: "2rem", 
+
       "@media (max-width:900px)": {
         fontSize: "1.5rem",
       },
@@ -150,7 +159,8 @@ export const theme = createTheme({
     },
     body1: {
       fontWeight: 350,
-      letterSpacing:"-0.03rem", 
+      letterSpacing: "0.02rem",
+      color: "var( --dark-on-surface-variant)",
     },
     body2: {
       fontWeight: 300,

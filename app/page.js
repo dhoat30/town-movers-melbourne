@@ -1,15 +1,11 @@
-// import Layout from '@/components/UI/Layout/Layout'
-// import OptimizedHero from '@/components/UI/Hero/OptimizedHero/OptimizedHero'
-// import TechLogos from '@/components/UI/TechLogos/TechLogos'
-// import USP from '@/components/UI/USP/USP'
 export const revalidate = 2592000; // applies to both page and metadata
 
-import Header from '@/components/UI/Header/Header'
-import GetQuotePage from '@/components/Pages/GetQuotePage/GetQuotePage'
-import {getSinglePostData, getGoogleReviews} from '@/utils/fetchData'
-import Footer from '@/components/UI/Footer/Footer'
-import Layout from '@/components/UI/Layout/Layout'
-import GoogleReviewsCarousel from '@/components/UI/GoogleReviews/GoogleReviewsCarousel'
+import Header from '@/Components/UI/Header/Header'
+import {getSinglePostData} from '@/utils/fetchData'
+import Footer from '@/Components/UI/Footer/Footer'
+import Layout from '@/Components/UI/Layout/Layout'
+import GoogleReviewsCarousel from '@/Components/UI/GoogleReviews/GoogleReviewsCarousel'
+import reviewsData from "@/data/google-reviews.json";
 
 
 
@@ -19,7 +15,7 @@ export async function generateMetadata(props, parent) {
     const slug = params.slug
 
     // fetch data
-    const data = await getSinglePostData( 'town-movers-melbourne', '/wp-json/wp/v2/moving-company')
+    const data = await getSinglePostData( 'town-movers-melbourne-2', '/wp-json/wp/v2/moving-company')
 
     // optionally access and extend (rather than replace) parent metadata
     const previousImages = (await parent).openGraph?.images || []
@@ -52,10 +48,8 @@ export async function generateMetadata(props, parent) {
     }
 }
 
-  export default async function PrimeCleanExperts() {
-    const data = await getSinglePostData( 'town-movers-melbourne', '/wp-json/wp/v2/moving-company')
-    const googleReviews = await getGoogleReviews()
-    console.log("google reviews data", googleReviews)
+  export default async function Home() {
+    const data = await getSinglePostData( 'town-movers-melbourne-2', '/wp-json/wp/v2/moving-company')
     if(!data) return {notFound: true}
     const sections = data[0]?.acf?.layout
     return (
@@ -63,14 +57,14 @@ export async function generateMetadata(props, parent) {
             <Header />
             <main>
 
-            <Layout sections={sections} />
+            <Layout sections={sections}  googleReviewsData={reviewsData}
+/>
                 {/* <Layout sections={postData[0]?.acf?.sections} /> */}
                 {/* <USP showTitle={true} statsArray={options.stats.items} cards={options.usp.items} title={options.usp.section_title} description={options.usp.section_description} /> */}
-                
-                 <GoogleReviewsCarousel data={googleReviews} />
+            
 
             </main>
-            <Footer showFooterCta={true} footerCtaData={{title:"Ready to Move Without the Stress?", description:"Whether you're moving a single room or a five-bedroom home, Town Movers makes it smooth, safe and affordable.", cta_link: {url: "/", title: 'GET MOVING QUOTE'}  }} />
+            <Footer showFooterCta={true} footerCtaData={{title: "Book Your Move with Confidence", description: "Don’t risk delays, damage, or surprise costs on moving day. Choose a professional moving team that shows up on time and does the job right.", cta_link: {url: "/", title: "GET A QUOTE"}}  }/>
         </>
     )
 }

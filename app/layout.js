@@ -1,12 +1,13 @@
 //import css file 
-import './globals.css'
+import './globals.scss'
 import './tokens.css'
+import 'leaflet/dist/leaflet.css'
 // Import slick css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Work_Sans } from 'next/font/google'
-import {AppRouterCacheProvider} from "@mui/material-nextjs/v15-appRouter"
-import ClientProvider from '@/components/Providers/ClientProvider';
+
+import ClientProvider from '@/Providers/ClientProvider';
 import Script from 'next/script'
 
 // fonts settings
@@ -20,11 +21,11 @@ const work_sans = Work_Sans({
 
 
 export default function RootLayout({ children }) {
-  const GTM_ID = 'GTM-5JTDZTDB'
+  const GTM_ID = process.env.GTM_ID;
 
   return (
     <html lang="en" className={`${work_sans.variable}`}>
- <Script
+    <Script
           id="gtm-script"
           strategy="lazyOnload" // or "lazyOnload" if you prefer
           dangerouslySetInnerHTML={{
@@ -38,9 +39,14 @@ export default function RootLayout({ children }) {
             `
           }}
         />
+         {/* <Script
+          id="hs-script-loader"
+          strategy="afterInteractive"
+          src={`//js-na2.hs-scripts.com/${process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID}.js`}
+        /> */}
               <body >
                   {/* 3) GTM noscript fallback */}
-          <noscript>  
+          <noscript>
           <iframe 
             src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`} 
             height="0" 
@@ -49,11 +55,10 @@ export default function RootLayout({ children }) {
             loading='lazy'
           />
         </noscript>
-        <AppRouterCacheProvider>
       <ClientProvider>
           {children}
         </ClientProvider>
-        </AppRouterCacheProvider>
+
       </body>
     </html>
   )
